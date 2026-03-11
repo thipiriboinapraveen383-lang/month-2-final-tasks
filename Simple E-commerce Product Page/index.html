@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop — Aero Sneaker</title>
+  <!-- External stylesheet -->
+  <link rel="stylesheet" href="style.css"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">AERO<span>.</span></div>
+    <div class="cart-icon" id="cartIcon">
+      🛒 <span class="cart-count" id="cartCount">0</span>
+    </div>
+  </nav>
+
+  <!-- Main Product Section -->
+  <main>
+
+    <!-- Product Image Gallery -->
+    <div class="product-gallery">
+      <!-- Main image display -->
+      <div class="main-image" id="mainImage">
+        <div class="product-badge">New Arrival</div>
+        <div class="placeholder-img" id="imgDisplay">👟</div>
+      </div>
+      <!-- Thumbnail strip -->
+      <div class="thumbnails">
+        <div class="thumb active" data-color="#f5f0e8">⬜</div>
+        <div class="thumb" data-color="#1a1a2e">⬛</div>
+        <div class="thumb" data-color="#e8f5e0">🟩</div>
+        <div class="thumb" data-color="#fde8e8">🟥</div>
+      </div>
+    </div>
+
+    <!-- Product Details -->
+    <div class="product-info">
+
+      <div class="brand-tag">AERO Collection 2025</div>
+      <h1 class="product-title">AeroFlex Runner X1</h1>
+
+      <!-- Star rating -->
+      <div class="rating">
+        <span class="stars">★★★★★</span>
+        <span class="review-count">(128 reviews)</span>
+      </div>
+
+      <!-- Price -->
+      <div class="price-row">
+        <span class="price" id="currentPrice">$129.99</span>
+        <span class="original-price">$179.99</span>
+        <span class="discount-badge">−28%</span>
+      </div>
+
+      <!-- Description -->
+      <p class="description">
+        Engineered for performance and comfort, the AeroFlex Runner X1 features
+        a responsive foam midsole, breathable mesh upper, and a durable rubber outsole.
+        Perfect for daily runs and casual wear.
+      </p>
+
+      <!-- Color Selector -->
+      <div class="selector-group">
+        <p class="selector-label">Color: <strong id="selectedColor">Cream</strong></p>
+        <div class="color-swatches">
+          <div class="swatch active" data-color="Cream"   style="background:#f5f0e8;" title="Cream"></div>
+          <div class="swatch" data-color="Midnight" style="background:#1a1a2e;" title="Midnight"></div>
+          <div class="swatch" data-color="Sage"     style="background:#7ec87e;" title="Sage"></div>
+          <div class="swatch" data-color="Blush"    style="background:#f4a5a5;" title="Blush"></div>
+        </div>
+      </div>
+
+      <!-- Size Selector -->
+      <div class="selector-group">
+        <p class="selector-label">Size: <strong id="selectedSize">—</strong></p>
+        <div class="size-grid">
+          <button class="size-btn" data-size="7">7</button>
+          <button class="size-btn" data-size="8">8</button>
+          <button class="size-btn" data-size="9">9</button>
+          <button class="size-btn" data-size="10">10</button>
+          <button class="size-btn" data-size="11">11</button>
+          <button class="size-btn" data-size="12">12</button>
+        </div>
+      </div>
+
+      <!-- Quantity Selector -->
+      <div class="selector-group">
+        <p class="selector-label">Quantity</p>
+        <div class="quantity-row">
+          <button class="qty-btn" id="decreaseQty">−</button>
+          <span id="qtyDisplay">1</span>
+          <button class="qty-btn" id="increaseQty">+</button>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-btns">
+        <button id="addToCartBtn" class="btn-primary">Add to Cart</button>
+        <button id="wishlistBtn"  class="btn-secondary">♡ Wishlist</button>
+      </div>
+
+      <!-- Features List -->
+      <ul class="features">
+        <li>✓ Free shipping on orders over $75</li>
+        <li>✓ 30-day easy returns</li>
+        <li>✓ 1-year manufacturer warranty</li>
+      </ul>
+
+    </div>
+  </main>
+
+  <!-- Cart Notification Toast -->
+  <div class="toast" id="toast">Added to cart! 🛒</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

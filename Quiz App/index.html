@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuizVerse — Knowledge Arena</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Animated 3D background -->
+  <div class="bg-scene">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-lines"></div>
+  </div>
+
+  <div class="app-shell">
+
+    <!-- ══════════════════════════════
+         SCREEN 1: HOME
+    ══════════════════════════════ -->
+    <div id="homeScreen" class="screen active">
+
+      <div class="home-header">
+        <div class="logo-wrap">
+          <span class="logo-text">QUIZ<em>VERSE</em></span>
+          <div class="logo-underline"></div>
+        </div>
+        <p class="tagline">Choose your arena. Prove your knowledge.</p>
+      </div>
+
+      <div class="section-label">⬡ SELECT CATEGORY</div>
+      <div class="category-grid" id="categoryGrid">
+        <!-- Filled by JS -->
+      </div>
+
+      <div class="section-label">⬡ NUMBER OF QUESTIONS</div>
+      <div class="count-selector">
+        <button class="count-btn active" data-count="5">5</button>
+        <button class="count-btn" data-count="10">10</button>
+        <button class="count-btn" data-count="15">15</button>
+        <button class="count-btn" data-count="20">20</button>
+      </div>
+
+      <div class="home-actions">
+        <button class="cta-btn" id="startQuizBtn">
+          <span>Launch Quiz</span>
+          <div class="btn-shine"></div>
+        </button>
+        <button class="ghost-btn" id="viewHistoryBtn">📊 View History</button>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         SCREEN 2: QUIZ
+    ══════════════════════════════ -->
+    <div id="quizScreen" class="screen">
+
+      <div class="hud">
+        <div class="hud-item">
+          <span class="hud-label">CATEGORY</span>
+          <span class="hud-value" id="hudCategory">—</span>
+        </div>
+        <div class="hud-item">
+          <span class="hud-label">QUESTION</span>
+          <span class="hud-value" id="hudQuestion">1/10</span>
+        </div>
+        <div class="hud-item">
+          <span class="hud-label">SCORE</span>
+          <span class="hud-value score-val" id="hudScore">0</span>
+        </div>
+      </div>
+
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+
+      <!-- 3D flipping card -->
+      <div class="card-scene">
+        <div class="question-card" id="questionCard">
+          <div class="q-number" id="qNumber">Q1</div>
+          <div class="q-text"   id="qText">...</div>
+        </div>
+      </div>
+
+      <div class="options-wrap" id="optionsWrap"></div>
+
+      <div class="quiz-footer">
+        <button class="next-btn" id="nextBtn" style="display:none">Next →</button>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         SCREEN 3: RESULT
+    ══════════════════════════════ -->
+    <div id="resultScreen" class="screen">
+
+      <div class="result-trophy" id="resultTrophy">🏆</div>
+      <div class="result-headline">QUIZ COMPLETE</div>
+      <div class="result-category" id="resultCategory"></div>
+
+      <div class="score-ring-wrap">
+        <svg class="score-ring" viewBox="0 0 120 120">
+          <circle class="ring-bg"   cx="60" cy="60" r="50"/>
+          <circle class="ring-fill" cx="60" cy="60" r="50" id="ringFill"/>
+        </svg>
+        <div class="score-ring-text">
+          <span id="ringScore">0</span>
+          <small id="ringTotal">/10</small>
+        </div>
+      </div>
+
+      <p class="result-msg" id="resultMsg"></p>
+
+      <div class="stat-pills">
+        <div class="stat-pill correct-pill">
+          <span class="pill-val" id="statCorrect">0</span>
+          <span class="pill-label">Correct</span>
+        </div>
+        <div class="stat-pill wrong-pill">
+          <span class="pill-val" id="statWrong">0</span>
+          <span class="pill-label">Wrong</span>
+        </div>
+        <div class="stat-pill">
+          <span class="pill-val" id="statPercent">0%</span>
+          <span class="pill-label">Accuracy</span>
+        </div>
+      </div>
+
+      <div class="result-actions">
+        <button class="cta-btn" id="playAgainBtn">Play Again</button>
+        <button class="ghost-btn" id="goHomeBtn">← Home</button>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         SCREEN 4: HISTORY
+    ══════════════════════════════ -->
+    <div id="historyScreen" class="screen">
+      <div class="history-top">
+        <h2 class="history-title">📊 QUIZ HISTORY</h2>
+        <button class="ghost-btn small" id="clearHistoryBtn">🗑 Clear All</button>
+      </div>
+      <div id="historyList" class="history-list"></div>
+      <button class="ghost-btn" id="backFromHistoryBtn">← Back to Home</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

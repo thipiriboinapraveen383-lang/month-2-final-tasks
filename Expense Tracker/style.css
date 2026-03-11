@@ -1,0 +1,286 @@
+/* =============================
+   Variables & Reset
+   ============================= */
+:root {
+  --bg: #f5f0e8;
+  --card-bg: #ffffff;
+  --text: #1a1a1a;
+  --muted: #888;
+  --income-color: #2ecc71;
+  --expense-color: #e74c3c;
+  --accent: #1a1a1a;
+  --border: #e0dbd0;
+  --radius: 14px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* =============================
+   App Container
+   ============================= */
+.app {
+  width: 100%;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  animation: fadeUp 0.5s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =============================
+   Header
+   ============================= */
+header h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+header h1 span {
+  color: var(--expense-color);
+}
+
+/* =============================
+   Summary Cards
+   ============================= */
+.summary-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 20px 18px;
+  border: 1px solid var(--border);
+  transition: transform 0.2s;
+}
+
+.card:hover { transform: translateY(-2px); }
+
+.card-label {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.card h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.card.balance h2 { color: var(--text); }
+.card.income  h2 { color: var(--income-color); }
+.card.expense h2 { color: var(--expense-color); }
+
+/* =============================
+   Form Section
+   ============================= */
+.form-section {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 28px;
+  border: 1px solid var(--border);
+}
+
+.form-section h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+/* Inputs and selects */
+.form-grid input,
+.form-grid select {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  background: #faf8f4;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-grid input:focus,
+.form-grid select:focus {
+  border-color: var(--accent);
+}
+
+/* Add button */
+#addBtn {
+  width: 100%;
+  padding: 14px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+#addBtn:hover {
+  background: #333;
+  transform: scale(1.01);
+}
+
+/* =============================
+   History Section
+   ============================= */
+.history-section {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 28px;
+  border: 1px solid var(--border);
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.history-header h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#clearAllBtn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#clearAllBtn:hover {
+  border-color: var(--expense-color);
+  color: var(--expense-color);
+}
+
+/* =============================
+   Transaction List
+   ============================= */
+#transactionList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: #faf8f4;
+  border-radius: 10px;
+  border-left: 4px solid transparent;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Color the left border by type */
+.transaction-item.income  { border-color: var(--income-color); }
+.transaction-item.expense { border-color: var(--expense-color); }
+
+.tx-info { flex: 1; }
+
+.tx-desc {
+  font-weight: 600;
+  font-size: 0.93rem;
+  margin-bottom: 2px;
+}
+
+.tx-meta {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.tx-amount {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 16px;
+}
+
+.transaction-item.income  .tx-amount { color: var(--income-color); }
+.transaction-item.expense .tx-amount { color: var(--expense-color); }
+
+/* Delete button per item */
+.tx-delete {
+  background: transparent;
+  border: none;
+  color: var(--border);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 4px;
+}
+
+.tx-delete:hover { color: var(--expense-color); }
+
+/* Empty state */
+.empty-msg {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 24px 0;
+}
+
+/* =============================
+   Responsive
+   ============================= */
+@media (max-width: 480px) {
+  .summary-cards { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+}
